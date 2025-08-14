@@ -1,0 +1,22 @@
+name: deploy-gh-page
+on:
+ workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Use Node.js 20
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      - name: build vue 
+        run: npm install && npm run build
+      - name: Publish to gh-pages branch
+        uses: chihqiang/gh-pages-action@main
+        with:
+          target_branch: gh-pages
+          publish_dir: dist
+          cname: www.zhiqiang.wang
+          token: ${{ secrets.GH_TOKEN }}
