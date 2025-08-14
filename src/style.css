@@ -1,0 +1,18 @@
+@import 'tailwindcss';
+
+@theme {
+  /* 在这里添加自定义主题配置 */
+}
+
+@utility gradient-card {
+  @apply bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white;
+}
+
+@utility gradient-btn {
+  @apply px-6 py-3 rounded font-semibold text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 transition;
+}
+
+
+html, body {
+  scroll-behavior: smooth; /* 平滑滚动 */
+}
